@@ -1,0 +1,23 @@
+
+
+
+
+ALTER table [nphies_claiminfo] ADD [PRESCRIPTION] Varchar(250) NULL
+go
+
+
+ALTER table [nphies_claimitem]
+
+ADD	[PHARMACISTSELECTIONREASON] Varchar(50) NULL,
+	[PHARMACISTSUBSTITUTE] Varchar(50) NULL,
+	[REASONPHARMACISTSUBSTITUTE] Varchar(50) NULL
+
+go
+
+
+Create table [nphies_claimitemdetails] 
+ADD	[PHARMACISTSELECTIONREASON] Varchar(50) NULL,
+	[PHARMACISTSUBSTITUTE] Varchar(50) NULL,
+	[REASONPHARMACISTSUBSTITUTE] Varchar(50) NULL ,
+	[PRESCRIBEDDRUGCODE] Varchar(50) NULL
+go
