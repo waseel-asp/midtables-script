@@ -190,6 +190,7 @@ Create table [nphies_claimsupportinginfo]
 	[ATTACHMENTFILENAME] Varchar(30) NULL,
 	[ATTACHMENTTYPE] Varchar(20) NULL,
 	[CODE] Varchar(30) NULL,
+	[UNIT] Varchar(30) NULL,
 	[TIMINGPERIODFROM] Datetime NULL,
 	[TIMINGPERIODTO] Datetime NULL,
 	Constraint [PK_CLAIMSUPPORTINGINFO] Primary Key ([PROVCLAIMNO],[SEQUENCENO])
