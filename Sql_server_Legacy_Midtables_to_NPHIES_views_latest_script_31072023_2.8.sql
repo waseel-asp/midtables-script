@@ -127,7 +127,7 @@ BEGIN
 		SUPPORTINGVALUE, SUPPORTINGATTACHMENT, ATTACHMENTFILENAME, ATTACHMENTTYPE, CODE,
 		TIMINGPERIODFROM, TIMINGPERIODTO , UNIT) AS 
 	SELECT PROVCLAIMNO AS PROVCLAIMNO , Support_Type, ROW_NUMBER() OVER(ORDER BY (SELECT 1)) AS SEQUENCENO,NULL,SUPPORTINGVALUE, FILECONTENT, FILENAME,
-	NULL AS NotNeeded_4,CODE,TIMINGPERIODFROM, TIMINGPERIODTO ,  NULL AS UNIT
+	NULL AS NotNeeded_4,CODE,TIMINGPERIODFROM, TIMINGPERIODTO ,  UNIT AS UNIT
 	FROM
 	(SELECT PROVCLAIMNO AS PROVCLAIMNO, ''temperature'' As Support_Type, NULL AS SEQUENCENO,NULL As NotNeeded_1, CONVERT(NVARCHAR(max),TEMPERATURE) AS SUPPORTINGVALUE, NULL AS FILECONTENT
 	, NULL FILENAME, NULL AS NotNeeded_4, ''Cel'' As CODE, NULL AS TIMINGPERIODFROM, NULL AS TIMINGPERIODTO ,  NULL AS UNIT
@@ -173,7 +173,7 @@ BEGIN
 	when labunit_temp is not null and labunit_temp != '''' THEN (''LABCODE: '' + ISNULL(labcompcode_temp,'''') +'' ,LABDESC: '' + ISNULL(labcompdesc_temp,'''')  + '' ,LABRESULT: '' + ISNULL(labresult_temp,'''') + '' ,LABRESULTUNIT: '' + ISNULL(labunit_temp,'''') + '' ,LABRESULTCOMMENT: '' + ISNULL(labComment_temp,'''') + '' ,LABRESULTCDESC: '' + ISNULL(labresultdesc_temp,''''))
 	when labComment_temp is not null and labComment_temp != '''' THEN (''LABCODE: '' + ISNULL(labcompcode_temp,'''') +'' ,LABDESC: '' + ISNULL(labcompdesc_temp,'''')  + '' ,LABRESULT: '' + ISNULL(labresult_temp,'''') + '' ,LABRESULTUNIT: '' + ISNULL(labunit_temp,'''') + '' ,LABRESULTCOMMENT: '' + ISNULL(labComment_temp,'''') + '' ,LABRESULTCDESC: '' + ISNULL(labresultdesc_temp,''''))
 	when labresultdesc_temp is not null and labresultdesc_temp != '''' THEN (''LABCODE: '' + ISNULL(labcompcode_temp,'''') +'' ,LABDESC: '' + ISNULL(labcompdesc_temp,'''')  + '' ,LABRESULT: '' + ISNULL(labresult_temp,'''') + '' ,LABRESULTUNIT: '' + ISNULL(labunit_temp,'''') + '' ,LABRESULTCOMMENT: '' + ISNULL(labComment_temp,'''') + '' ,LABRESULTCDESC: '' + ISNULL(labresultdesc_temp,''''))
-	END AS SUPPORTINGVALUE, NULL AS FILECONTENT, NULL FILENAME, NULL AS NotNeeded_4, CODE_temp AS CODE, NULL AS TIMINGPERIODFROM, NULL AS TIMINGPERIODTO ,  NULL AS UNIT
+	END AS SUPPORTINGVALUE, NULL AS FILECONTENT, NULL FILENAME, NULL AS NotNeeded_4, CODE_temp AS CODE, NULL AS TIMINGPERIODFROM, NULL AS TIMINGPERIODTO ,  labunit_temp AS UNIT
 	FROM(
 	SELECT labResult.PROVCLAIMNO AS PROVCLAIMNO_temp, ''lab-test'' AS Support_Type_temp, 
 		labComponent.LABCOMPCODE AS labcompcode_temp, labComponent.LABCOMPDESC AS labcompdesc_temp, labComponent.LABRESULT AS labresult_temp, 
@@ -193,7 +193,7 @@ ELSE
 		SUPPORTINGVALUE, SUPPORTINGATTACHMENT, ATTACHMENTFILENAME, ATTACHMENTTYPE, CODE,
 		TIMINGPERIODFROM, TIMINGPERIODTO,UNIT) AS 
 	SELECT PROVCLAIMNO AS PROVCLAIMNO , Support_Type, ROW_NUMBER() OVER(ORDER BY (SELECT 1)) AS SEQUENCENO,NULL,SUPPORTINGVALUE, FILECONTENT, FILENAME,
-	NULL AS NotNeeded_4,CODE,TIMINGPERIODFROM, TIMINGPERIODTO ,  NULL AS UNIT 
+	NULL AS NotNeeded_4,CODE,TIMINGPERIODFROM, TIMINGPERIODTO ,  UNIT AS UNIT 
 	FROM
 	(SELECT PROVCLAIMNO AS PROVCLAIMNO, ''temperature'' As Support_Type, NULL AS SEQUENCENO,NULL As NotNeeded_1, CONVERT(NVARCHAR(max),TEMPERATURE) AS SUPPORTINGVALUE, NULL AS FILECONTENT
 	, NULL FILENAME, NULL AS NotNeeded_4, ''Cel'' As CODE, NULL AS TIMINGPERIODFROM, NULL AS TIMINGPERIODTO ,  NULL AS UNIT
@@ -243,7 +243,7 @@ ELSE
 	when labunit_temp is not null and labunit_temp != '''' THEN (''LABCODE: '' + ISNULL(labcompcode_temp,'''') +'' ,LABDESC: '' + ISNULL(labcompdesc_temp,'''')  + '' ,LABRESULT: '' + ISNULL(labresult_temp,'''') + '' ,LABRESULTUNIT: '' + ISNULL(labunit_temp,'''') + '' ,LABRESULTCOMMENT: '' + ISNULL(labComment_temp,'''') + '' ,LABRESULTCDESC: '' + ISNULL(labresultdesc_temp,''''))
 	when labComment_temp is not null and labComment_temp != '''' THEN (''LABCODE: '' + ISNULL(labcompcode_temp,'''') +'' ,LABDESC: '' + ISNULL(labcompdesc_temp,'''')  + '' ,LABRESULT: '' + ISNULL(labresult_temp,'''') + '' ,LABRESULTUNIT: '' + ISNULL(labunit_temp,'''') + '' ,LABRESULTCOMMENT: '' + ISNULL(labComment_temp,'''') + '' ,LABRESULTCDESC: '' + ISNULL(labresultdesc_temp,''''))
 	when labresultdesc_temp is not null and labresultdesc_temp != '''' THEN (''LABCODE: '' + ISNULL(labcompcode_temp,'''') +'' ,LABDESC: '' + ISNULL(labcompdesc_temp,'''')  + '' ,LABRESULT: '' + ISNULL(labresult_temp,'''') + '' ,LABRESULTUNIT: '' + ISNULL(labunit_temp,'''') + '' ,LABRESULTCOMMENT: '' + ISNULL(labComment_temp,'''') + '' ,LABRESULTCDESC: '' + ISNULL(labresultdesc_temp,''''))
-	END AS SUPPORTINGVALUE, NULL AS FILECONTENT, NULL FILENAME, NULL AS NotNeeded_4, CODE_temp AS CODE, NULL AS TIMINGPERIODFROM, NULL AS TIMINGPERIODTO ,  NULL AS UNIT
+	END AS SUPPORTINGVALUE, NULL AS FILECONTENT, NULL FILENAME, NULL AS NotNeeded_4, CODE_temp AS CODE, NULL AS TIMINGPERIODFROM, NULL AS TIMINGPERIODTO ,  labunit_temp AS UNIT
 	FROM(
 	SELECT labResult.PROVCLAIMNO AS PROVCLAIMNO_temp, ''lab-test'' AS Support_Type_temp, 
 		labComponent.LABCOMPCODE AS labcompcode_temp, labComponent.LABCOMPDESC AS labcompdesc_temp, labComponent.LABRESULT AS labresult_temp, 
