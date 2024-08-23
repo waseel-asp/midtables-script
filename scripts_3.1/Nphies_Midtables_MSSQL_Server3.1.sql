@@ -369,7 +369,7 @@ go
 Alter table [nphiesencounterhospitalization] add Constraint [FK_ENCOUNTERHOSPITALIZATION] foreign key ([ENCOUNTERID]) references [nphies_claimencounters] ([ENCOUNTERID])
 go
 
-Create table [nphies_encounteremergency (
+Create table [nphies_encounteremergency] (
 	[ENCOUNTEREMERGENCYID]  Varchar (20) NOT NULL,
 	[EMERGENCYARRIVALCODE]  Varchar (20) NOT NULL,
 	[EMERGENCYSERVICESTART] Datetime NOT NULL,
