@@ -191,7 +191,7 @@ Create table [nphies_claimsupportinginfo]
 (
 	[PROVCLAIMNO]  Varchar (40) NOT NULL,
 	[SEQUENCENO] Integer NOT NULL,
-	[CATEGORY]  Varchar (20) NOT NULL,
+	[CATEGORY]  Varchar (40) NOT NULL,
 	[REASON]  Varchar (20) NULL,
 	[SUPPORTINGVALUE] Text NULL,
 	[SUPPORTINGATTACHMENT] varbinary(max) NULL,

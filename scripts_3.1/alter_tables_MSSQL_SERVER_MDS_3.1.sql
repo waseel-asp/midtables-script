@@ -90,3 +90,6 @@ go
 
 Alter table [nphies_encounteremergency] add Constraint [FK_ENCOUNTERMERGENCY] foreign key ([ENCOUNTERID]) references [nphies_claimencounters] ([ENCOUNTERID])
 go
+
+Alter table [nphies_claimsupportinginfo] alter column [category] Varchar (40) NOT NULL
+go
